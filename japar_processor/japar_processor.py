@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
+from .jo_parser import JoParser
 import json
 import sys
 
@@ -27,6 +28,8 @@ class JaparProcessor:
             content = file.read()
         self.text_area.delete(1.0, tk.END)
         self.text_area.insert(tk.END, content)
+        JoParser.parse(content)
+        
 
     def run(self):
         self.root.mainloop()
