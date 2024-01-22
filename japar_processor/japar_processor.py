@@ -47,9 +47,19 @@ class JaparProcessor:
     def print_elbow_results(self, elbow_results: dict[str, list[ElbowCheckResult]]):
         self.text_area.delete("1.0", tk.END)
         output_lines = []
+        
+        output_lines.append("NEJZATÍŽENĚJŠÍ KOLENA")
         for load_case_name, elbow_results_for_this_case in elbow_results.items():
             output_lines.append("Zatěžovací stav: " + load_case_name)
+            output_lines.append("┌────────┬────────────┬──────────────┬──────────┬─────────┬──────────┬─────────────┐")
+            output_lines.append(elbow_results_for_this_case[0].output_line)
+            output_lines.append("└────────┴────────────┴──────────────┴──────────┴─────────┴──────────┴─────────────┘")
+
+        output_lines.append("\nVŠECHNA KOLENA")
+        for load_case_name, elbow_results_for_this_case in elbow_results.items():
+            output_lines.append("Zatěžovací stav: " + load_case_name)
+            output_lines.append("┌────────┬────────────┬──────────────┬──────────┬─────────┬──────────┬─────────────┐")
             for elbow_result in elbow_results_for_this_case:
                 output_lines.append(elbow_result.output_line)
-            output_lines.append("├────────┼────────────┼──────────────┼──────────┼─────────┼──────────┼─────────────┤\n")
+            output_lines.append("└────────┴────────────┴──────────────┴──────────┴─────────┴──────────┴─────────────┘\n")
         self.text_area.insert(tk.END, "\n".join(output_lines))

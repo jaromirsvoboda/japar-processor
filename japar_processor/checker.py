@@ -20,11 +20,11 @@ class ElbowCheckResult:
     @property
     def output_line(self) -> str:
         start_element_name = self.start_element.split("'")[0].split("\"")[0].split("~")[0]
-        end_element_name = self.start_element.split("'")[0].split("\"")[0].split("~")[0]
+        end_element_name = self.end_element.split("'")[0].split("\"")[0].split("~")[0]
         
         return (
-            f"│        │        kol.│{start_element_name.rjust(6, ' ')} {end_element_name.rjust(6, ' ')} |{format(self.max_load, '.1f').rjust(8, ' ')}  |"
-            + f"{format(self.load_limit, '.1f').rjust(7, ' ')}  |{format(self.sl, '.3f').rjust(8, ' ')} {' ' if self.sl < 1 else '*'}|{format(self.ls, '.3f').rjust(11, ' ')} {' ' if self.ls > 1 else '*'}|"
+            f"│        │        kol.│{start_element_name.rjust(6, ' ')} {end_element_name.rjust(6, ' ')} │{format(self.max_load, '.1f').rjust(8, ' ')}  │"
+            + f"{format(self.load_limit, '.1f').rjust(7, ' ')}  │{format(self.sl, '.3f').rjust(8, ' ')} {' ' if self.sl < 1 else '*'}│{format(self.ls, '.3f').rjust(11, ' ')} {' ' if self.ls > 1 else '*'}│"
         )
 
 class Checker():
