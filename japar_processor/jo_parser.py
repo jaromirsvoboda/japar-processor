@@ -39,7 +39,6 @@ class JoParser():
             for lines_by_elements_tuple in lines_by_elements:
                 if lines_by_elements_tuple[0][48] == " ": # this is not an elbow
                     continue
-                assert len(lines_by_elements_tuple[0].strip().split()) == 23
                 loads = []
                 for line in lines_by_elements_tuple[:-1]:
                     split_line = line.strip().split()

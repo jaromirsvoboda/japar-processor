@@ -12,5 +12,5 @@
 ## To build .exe file:
 
 - `pip install pyinstaller`
-- `pyinstaller --onefile your_script.py`
+- `pyinstaller --onefile --name japar-processor  main.py`
 - exe created in the `dist` folder
